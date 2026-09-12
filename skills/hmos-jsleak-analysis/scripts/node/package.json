@@ -1,0 +1,7 @@
+{
+	"type": "module",
+	"dependencies": {
+		"@memlab/heap-analysis": "^2.0.3",
+		"@memlab/core": "^2.0.3"
+	}
+}
