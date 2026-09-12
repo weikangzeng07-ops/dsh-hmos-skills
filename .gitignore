@@ -1,0 +1,17 @@
+# Build and tooling output
+node_modules/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Vendored dependency trees inside skill bundles are restored on demand:
+#   cd skills/hmos-arkts-knowledge-retriever/linter-cli && npm ci
+skills/*/node_modules/
+skills/*/*/node_modules/
+
+# Editor and OS noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp

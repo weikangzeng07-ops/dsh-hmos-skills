@@ -1,0 +1,36 @@
+# dsh-hmos-skills bundle patch
+#
+# This is the `dsh.bundle.patch` layer of the package. When the plugin is
+# installed through the official CLI —
+#
+#   dsh plugin --profile <name> add github:weikangzeng07-ops/dsh-hmos-skills
+#
+# — the command reconciles `dsh.profile.bundles` against the installed packages
+# and, seeing this declaration, appends `dsh-hmos-skills` to the bundle stack.
+# The profile boot then merges this patch, a single `insert` of the plugin row,
+# exactly like a manual `cordis.patch.yml` mount line. No profile file edits are
+# needed: one command installs and mounts.
+#
+# The row registers one `ctx.skills` provider named `hmos` that serves the 39
+# `skills/<name>/SKILL.md` bundles shipped in this package. It requires the host
+# to already carry the skill registry and the model-facing loader, which every
+# stock DSH profile does:
+#
+#   @deepseek-ai/dsh-skill              (ctx.skills registry)
+#   @deepseek-ai/dsh-skill-filesystem   (local project/user skills)
+#   @deepseek-ai/dsh-tool-skill         (the `skill` tool + session catalog)
+#
+# Optional settings, all with working defaults — uncomment and edit to change:
+#
+#   - insert:
+#       - id: hmos-skills
+#         name: 'dsh-hmos-skills'
+#         config:
+#           providerName: hmos          # name this provider registers under
+#           environmentNote: true       # prepend the DSH runtime note on load
+#           skillsDir: /abs/path        # serve another skill directory instead
+#           rank: 600                   # BUNDLED_SKILL_RANK duplicate precedence
+#
+- insert:
+    - id: hmos-skills
+      name: 'dsh-hmos-skills'

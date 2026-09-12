@@ -1,0 +1,49 @@
+{
+  "name": "dsh-hmos-skills",
+  "version": "1.0.0",
+  "description": "HarmonyOS (鸿蒙) development skills for DeepSeek Harness — 39 official hmos-* skill bundles ported to the DSH skill registry: ArkTS/ArkUI development, multi-device adaptation, Kit integration, and DFX crash/leak analysis.",
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "scripts",
+    "skills",
+    "cordis.patch.yml",
+    "README.md",
+    "README.zh.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "harmonyos",
+    "hmos",
+    "openharmony",
+    "arkts",
+    "arkui",
+    "deveco",
+    "skills",
+    "agent-skills"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "scripts": {
+    "smoke": "node scripts/smoke.mjs"
+  }
+}
